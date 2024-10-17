@@ -17,43 +17,43 @@ void main() {
 
 		switch (menuInput)
 		{
-			case 1:
-			{
-				printf("\nThe Rectangle has a length of %i and a width of %i\n\n", length, width);
-				break;
-			}
-			case 2:
-			{
-				int input = getIntInput("Please enter the length of the rectangle:");
-				setLength(input, &length);
-				break;
-			}
-			case 3:
-			{
-				int input = getIntInput("Please enter the width of the rectangle:");
-				setWidth(input, &width);
-				break;
-			}
-			case 4:
-			{
-				printf("\nThe Rectangle has a perimeter of %i\n\n", getPerimeter(&length, &width));
-				break;
-			}
-			case 5:
-			{
-				printf("\nThe Rectangle has an area of %i\n\n", getArea(&length, &width));
-				break;
-			}
-			case 6:
-			{
-				continueProgram = false;
-				break;
-			}
-			default:
-			{
-				printf("\nInvalid value entered.\n\n");
-				break;
-			}
+		case 1:
+		{
+			printf("\nThe Rectangle has a length of %i and a width of %i\n\n", length, width);
+			break;
+		}
+		case 2:
+		{
+			int input = getIntInput("Please enter the length of the rectangle:");
+			setLength(input, &length);
+			break;
+		}
+		case 3:
+		{
+			int input = getIntInput("Please enter the width of the rectangle:");
+			setWidth(input, &width);
+			break;
+		}
+		case 4:
+		{
+			printf("\nThe Rectangle has a perimeter of %i\n\n", getPerimeter(&length, &width));
+			break;
+		}
+		case 5:
+		{
+			printf("\nThe Rectangle has an area of %i\n\n", getArea(&length, &width));
+			break;
+		}
+		case 6:
+		{
+			continueProgram = false;
+			break;
+		}
+		default:
+		{
+			printf("\nInvalid value entered.\n\n");
+			break;
+		}
 		}
 	}
 }
@@ -62,7 +62,7 @@ int getIntInput(char message[]) {
 	int input;
 	int scannedValues;
 	do {
-		printf("\n%s\n",message);
+		printf("\n%s\n", message);
 		scannedValues = scanf_s("%i", &input);
 		int buf;
 		while ((buf = getchar()) != '\n' && buf != EOF);
@@ -70,24 +70,24 @@ int getIntInput(char message[]) {
 	return input;
 }
 
-void setLength(int input, int *length) {
-	if (input >= 0 && input < 100) {
+void setLength(int input, int* length) {
+	if (input > 0 && input < 100) {
 		*length = input;
 	}
 }
 
-void setWidth(int input, int *width) {
-	if (input > 0 && input <= 100) {
+void setWidth(int input, int* width) {
+	if (input > 0 && input < 100) {
 		*width = input;
 	}
 }
 
-int getPerimeter(int *length, int *width) {
-	int perimeter = *length + *length + *width;
+int getPerimeter(int* length, int* width) {
+	int perimeter = 2 * (*width + *length);
 	return perimeter;
 }
 
-int getArea(int *length, int *width) {
+int getArea(int* length, int* width) {
 	int area = *length * *width;
 	return area;
 }
